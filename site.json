@@ -1,0 +1,12 @@
+{
+    "routes": [{
+        "name": "Home",
+        "url": "/",
+        "sections": [{
+            "section": "Hero",
+            "option": {
+                "mainImageUrl": "./logo.png"
+            }
+        }]
+    }]
+}
