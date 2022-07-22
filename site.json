@@ -8,5 +8,14 @@
                 "mainImageUrl": "./logo.png"
             }
         }]
+    }, {
+        "name": "Product",
+        "url": "/product/:idProduct",
+        "sections": [{
+            "section": "Hero",
+            "option": {
+                "mainImageUrl": "./logo.png"
+            }
+        }]
     }]
 }

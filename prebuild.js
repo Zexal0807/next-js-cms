@@ -1,10 +1,12 @@
 const fs = require("fs");
+const path = require("path");
 
 const FILENAME = "./site.json";
 
 const createPage = (details) => {
-        let url = "./pages" + (details.url == "/" ? "/index.js" : details.url);
-        // TODO: replace /:([a-zA-Z0-9]*)/ con /$1/
+        let url = "./pages";
+        url = url + (details.url == "/" ? "/index" : details.url) + ".js";
+        url = url.replace(/:([a-zA-Z0-9]*)/g, "[$1]");
 
         // TODO: Fix import path as dynamic
         let content = `${details.sections.map(
@@ -27,6 +29,10 @@ export default function ${details.name}Page () {
     );
 }`;
 
+  let dir = path.dirname(url);
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+  }
   fs.writeFileSync(url, content);
 };
 
